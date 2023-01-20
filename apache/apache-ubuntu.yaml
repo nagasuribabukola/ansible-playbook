@@ -1,6 +1,6 @@
 ---
 - name: install apache2 on ubuntu
-  host: all
+  hosts: all
   become: yes
   tasks:
     - name: install apache2
