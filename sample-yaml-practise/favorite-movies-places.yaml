@@ -1,0 +1,49 @@
+---
+Movies:
+  - Name: RRR
+    Actors:
+      - Ram Charan
+      - NTR
+    Technical_team:
+      Director: S S Rajamouli
+      Music: M M Kiravani
+    Language:
+      - Telugu
+      - Hindi
+      - Tamil
+      - Malayalam
+    Producer: D V V Danayya
+    Distributor:
+      North India:
+        - Pen Studios
+        - Lyka Media
+      Kerala: HR Pictures
+    Budget_Crore: 550
+    Release_Date: 25 March 2022
+  - Name: Bheemla Nayak
+    Actors:
+      - Pawan Kalyan
+      - Rana
+    Technical_team:
+      Director: Saagar K Chandra
+      Music: Thaman S
+    Language: Telugu
+    Producer: Naga Vamsi
+    Distributor: Sithara Entertainments
+    Budget_Crore: 75
+    Release_Date: 25 February 2022
+Places:
+  - Name: Magatapalli
+    State: Andhra Pradesh
+    Mode_of_Travel: By Road
+    Because:
+      - Birth Place
+      - Enjoyed alot in My Childhood days
+  - Name: Maredumilli
+    State: Andhra Pradesh
+    Mode_of_Travel: By Road
+    Good_to_See:
+      - Waterfals
+      - Climbing
+      - Snow Hills
+      - View Points

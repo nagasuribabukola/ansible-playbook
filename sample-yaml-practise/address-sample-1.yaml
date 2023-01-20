@@ -1,0 +1,18 @@
+---
+name: Suresh Kola
+contact:
+  email:
+    - nagasuribabu.k@gmail.com
+    - nagasuribabukola@gmail.com
+  phone:
+    - 9133587555
+    - 9550694214
+address:
+  - address_type: Home
+    village: Magatapalli
+    pincode: 533248
+    state: AP
+  - address_type: Office
+    village: Kesanapalli
+    pincode: 533244
+    state: AP
