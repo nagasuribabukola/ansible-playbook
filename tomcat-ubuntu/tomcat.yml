@@ -50,3 +50,25 @@
         daemon_reload: yes
         enabled: yes
         state: started
+    - name: configure web configuration
+      ansible.builtin.copy:
+        src: tomcat-users.xml
+        dest: /opt/tomcat/latest/conf/tomcat-users.xml
+        owner: tomcat
+        group: tomcat
+    - name: configure manager app
+      ansible.builtin.copy:
+        src: manager-context.xml
+        dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+        owner: tomcat
+        group: tomcat
+    - name: configure host manager app
+      ansible.builtin.copy:
+        src: context.xml
+        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+        owner: tomcat
+        group: tomcat
+    - name: reload deamon
+      ansible.builtin.systemd:
+        name: tomcat
+        state: restarted
