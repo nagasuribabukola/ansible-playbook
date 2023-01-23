@@ -48,4 +48,5 @@
       ansible.builtin.systemd:
         name: tomcat
         daemon_reload: yes
+        enabled: yes
         state: started
