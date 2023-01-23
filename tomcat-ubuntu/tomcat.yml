@@ -22,4 +22,4 @@
     - name: downloading tomcat
       ansible.builtin.get_url:
         url: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.4/bin/apache-tomcat-10.1.4.tar.gz
-        dest: /tmp
+        dest: /tmp/apache-tomcat-10.1.4.tar.gz
