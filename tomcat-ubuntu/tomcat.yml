@@ -21,6 +21,6 @@
         state: present
     - name: download and archieve tomcat
       ansible.builtin.unarchive:
-        src: https://www-eu.apache.org/dist/tomcat/tomcat-10/v10.1.4/bin/apache-tomcat-10.1.4.tar.gz
+        src: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz
         dest: /opt/tomcat/
         remote_src: yes
