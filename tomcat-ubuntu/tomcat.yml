@@ -1,0 +1,21 @@
+---
+- name: tomcat installation on ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: install java 11
+      ansible.builtin.apt:
+        name: openjdk-11-jdk
+        update_cache: yes
+        state: present
+    - name: creating a tomcat group
+      ansible.builtin.group:
+        name: tomcat
+    - name: creating a system user
+      ansible.builtin.user:
+        name: tomcat
+        create_home: yes
+        home: /opt/tomcat
+        shell: /bin/false
+        group: tomcat
+        state: present
