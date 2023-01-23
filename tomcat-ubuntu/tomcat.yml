@@ -24,3 +24,27 @@
         src: https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.5/bin/apache-tomcat-10.1.5.tar.gz
         dest: /opt/tomcat/
         remote_src: yes
+    - name: create a symbolic link
+      ansible.builtin.file:
+        src: /opt/tomcat/apache-tomcat-10.1.5
+        dest: /opt/tomcat/latest
+        state: link
+    - name: change ownership
+      ansible.builtin.file:
+        dest: /opt/tomcat
+        owner: tomcat
+        group: tomcat
+        recurse: yes
+        state: directory
+    - name: adding execution permissions to ssh files
+      ansible.builtin.shell: sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+    - name: adding systemd file
+      ansible.builtin.copy:
+        src: tomcat.service
+        dest: /etc/systemd/system/tomcat.service
+        owner: tomcat
+        group: tomcat
+    - name: reload deamon
+      ansible.builtin.systemd:
+        daemon_reload: yes
+        state: started
