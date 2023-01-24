@@ -50,3 +50,25 @@
         daemon_reload: true
         enabled: true
         state: started
+    - name: configuring tomcat web management interface
+      ansible.builtin.copy:
+        src: tomcat-users.xml
+        dest: /opt/tomcat/latest/conf/tomcat-users.xml
+        owner: tomcat
+        group: tomcat
+    - name: configuring manager app
+      ansible.builtin.copy:
+        src: context.xml
+        dest: /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+        owner: tomcat
+        group: tomcat
+    - name: configuring host manager app
+      ansible.builtin.copy:
+        src: hostmanager-context.xml
+        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/hostmanager-context.xml
+        owner: tomcat
+        group: tomcat
+    - name: restart tomcat
+      ansible.builtin.systemd:
+        name: tomcat
+        state: restarted
