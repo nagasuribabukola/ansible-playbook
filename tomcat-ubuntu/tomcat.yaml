@@ -65,7 +65,7 @@
     - name: configuring host manager app
       ansible.builtin.copy:
         src: hostmanager-context.xml
-        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/hostmanager-context.xml
+        dest: /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
         owner: tomcat
         group: tomcat
     - name: restart tomcat
