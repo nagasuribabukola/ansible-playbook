@@ -1,0 +1,61 @@
+---
+- name: installation of lamp stack
+  hosts: all
+  become: yes
+  tasks:
+    - name: install apache2 on ubuntu
+      ansible.builtin.apt:
+        name: apache2
+        update_cache: yes
+        state: present
+    - name: install php on ubuntu
+      ansible.builtin.apt:
+        name: php
+        state: present
+    - name: install libapache2-mod-php on ubuntu
+      ansible.builtin.apt:
+        name: libapache2-mod-php
+        state: present
+    - name: create & change recurse ownership of directory
+      ansible.builtin.file:
+        path: /var/www/suresh
+        state: directory
+        recurse: yes
+        owner: devops
+        group: devops
+    - name: create conf file
+      ansible.builtin.copy:
+        src: suresh.conf
+        dest: /etc/apache2/sites-available/suresh.conf
+        owner: devops
+        group: devops
+    - name: enable new virtual host
+      ansible.builtin.shell: sudo a2ensite suresh
+    - name: disable apache default website
+      ansible.builtin.shell: sudo a2dissite 000-default
+    - name: reload apache2 server
+      ansible.builtin.systemd:
+        name: apache2
+        state: reloaded
+    - name: create virtual host page
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/suresh/index.html
+        owner: devops
+        group: devops
+    - name: add index.php on directory index
+      ansible.builtin.copy:
+        src: dir.conf
+        dest: /etc/apache2/mods-enabled/dir.conf
+        owner: devops
+        group: devops
+    - name: reload apache2 server
+      ansible.builtin.systemd:
+        name: apache2
+        state: reloaded
+    - name: create php file
+      ansible.built.copy:
+        src: info.php
+        dest: /var/www/suresh/info.php
+        owner: devops
+        group: devops
