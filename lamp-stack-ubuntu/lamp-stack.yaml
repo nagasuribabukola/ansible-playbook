@@ -54,7 +54,7 @@
         name: apache2
         state: reloaded
     - name: create php file
-      ansible.built.copy:
+      ansible.builtin.copy:
         src: info.php
         dest: /var/www/suresh/info.php
         owner: devops
